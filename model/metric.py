@@ -1,6 +1,10 @@
 import torch
 
 
+def reconstruction_error(output, target):
+    return torch.mean(torch.sum((output - target)**2, dim=1))
+
+
 def accuracy(output, target):
     with torch.no_grad():
         pred = torch.argmax(output, dim=1)
